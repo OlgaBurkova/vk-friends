@@ -128,6 +128,14 @@
                 for (const item of items) {
                     item.draggable = true;
                 }
+
+                const storage = JSON.parse(localStorage.getItem('bestFriends'));
+                // Для друзей, которые есть в localStorage, эмулируется нажатие кнопки добавления в зону "Друзья в списке"
+                if (storage) {
+                    for (let i = 0; i < storage.length; i++) {
+                        document.getElementById(storage[i]).querySelector('.button').click();
+                    }
+                }
             } catch (e) {
             console.log(e);
             }
